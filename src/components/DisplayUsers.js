@@ -9,11 +9,9 @@ class DisplayUsers extends React.Component {
         this.state = {
         users: [],
         };
-    this.getUsers = this.getUsers.bind(this);
-    this.deleteUser = this.deleteUser.bind(this);
     }
 
-    getUsers() {
+    componentDidMount() {
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 console.log(response.data)
@@ -29,11 +27,14 @@ class DisplayUsers extends React.Component {
     
 
     render () {
+        const { users } = this.state;
         return (
             <div>
-            <button type="button" onClick={this.getUsers}>Display Users</button>
-            {this.state.users.map(function(user) {
-                return <UserDetail {...user} key={user.id} deleteUser={user.deleteUser}/>
+            {users.map(user => {
+                return <UserDetail 
+                {...user} 
+                key={user.id} 
+                deleteUser={this.deleteUser} />
             })}        
         </div>
         );

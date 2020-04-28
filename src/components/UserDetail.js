@@ -1,22 +1,20 @@
 import React from 'react';
 import './UserDetail.css';
 
-
-
-const UserDetail = ({ id, username, name, email, address, deleteUser }) => {
+const UserDetail = (props) => {
     return (
         <div className="user-class">
         <fieldset>
+            <button onClick={() => props.deleteUser(props.id)}>X</button>
             <legend>User Informations</legend>
-            <button onClick={() => deleteUser(id)}>X</button>
             <div className="user-data">
-                <p><strong>Id: </strong>{id}</p>
-                <p><strong>Username: </strong>{username}</p>
-                <p><strong>Name: </strong>{name}</p>
-                <p><strong>Email: </strong>{email}</p>
-                <p><strong>Address: </strong>{address.street},{address.suite}</p>
-                <p><strong>City/Zipcode </strong>{address.city} / {address.zipcode}</p>
-                <p><strong>Lat/Lng </strong>{address.geo.lat} / {address.geo.lng}</p>
+                <p><strong>Id: </strong>{props.id}</p>
+                <p><strong>Username: </strong>{props.username}</p>
+                <p><strong>Name: </strong>{props.name}</p>
+                <p><strong>Email: </strong>{props.email}</p>
+                <p><strong>Address: </strong>{props.address.street},{props.address.suite}</p>
+                <p><strong>City/Zipcode </strong>{props.address.city} / {props.address.zipcode}</p>
+                <p><strong>Lat/Lng </strong>{props.address.geo.lat} / {props.address.geo.lng}</p>
             </div>
         </fieldset>
         </div>
