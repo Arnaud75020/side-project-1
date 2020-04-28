@@ -6,9 +6,8 @@ const UserDetail = (props) => {
         <div className="user-class">
         <fieldset>
             <button onClick={() => props.deleteUser(props.id)}>X</button>
-            <legend>User Informations</legend>
+            <legend>User <strong>{props.id}</strong> Informations</legend>
             <div className="user-data">
-                <p><strong>Id: </strong>{props.id}</p>
                 <p><strong>Username: </strong>{props.username}</p>
                 <p><strong>Name: </strong>{props.name}</p>
                 <p><strong>Email: </strong>{props.email}</p>
