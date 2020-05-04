@@ -5,18 +5,25 @@
 fieldset{
     background-color: whitesmoke;
 }
-.user-class {
+.user-class, .adduser-class {
     width: 60%;
     margin: auto;
 }
 
-.user-data {
+
+.user-data, .adduser-data {
     text-align: left;
 }
 
 .user-class button {
     position: relative;
     left: 45%;
+    border-radius: 12px; 
+    background-color: rgb(150, 57, 57);
+    color: white;
+}
+.adduser-class button {
+    position: relative;
     border-radius: 12px; 
     background-color: rgb(150, 57, 57);
     color: white;
