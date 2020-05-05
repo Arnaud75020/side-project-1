@@ -22,16 +22,19 @@ class DisplayUsers extends React.Component {
     }
 
     deleteUser = (id) => {
-     const users = this.state.users.filter(user => user.id !== id)  
-     this.setState({ users })
+        const users = this.state.users.filter(user => user.id !== id)  
+        this.setState({ users })
     }
 
     editUser = () => {
-        console.log('editUser')
+        const users = this.state.users
+        this.setState ({ users })
         }
 
-    addUser = (user) => {
-        console.log(user)
+    addUser = (newUser) => {
+        let users = this.state.users
+        users.push(newUser)
+        this.setState({ users }) 
     }
     
 

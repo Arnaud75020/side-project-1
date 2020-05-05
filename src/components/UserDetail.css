@@ -4,6 +4,7 @@
 
 fieldset{
     background-color: whitesmoke;
+    position: relative;
 }
 .user-class, .adduser-class {
     width: 60%;
@@ -11,19 +12,44 @@ fieldset{
 }
 
 
-.user-data, .adduser-data {
+.user-data {
     text-align: left;
+    padding: 30px;
 }
 
-.user-class button {
-    position: relative;
-    left: 45%;
+.adduser-data {
+    text-align: center;
+    padding: 30px;
+}
+
+.delete-user-button {
+    position: absolute;
+    right: 10px;
     border-radius: 12px; 
     background-color: rgb(150, 57, 57);
     color: white;
 }
-.adduser-class button {
-    position: relative;
+
+.save-button {
+    position: absolute;
+    right: 10px;
+    border-radius: 12px; 
+    background-color: rgb(31, 97, 36);
+    color: white;
+}
+
+.edit-user-button {
+    position: absolute;
+    bottom: 10px;
+    right: 45%;
+    border-radius: 12px; 
+    background-color: rgb(31, 97, 36);
+    color: white;
+}
+.add-user-button {
+    position: absolute;
+    bottom: 10px;
+    right: 45%;
     border-radius: 12px; 
     background-color: rgb(150, 57, 57);
     color: white;
