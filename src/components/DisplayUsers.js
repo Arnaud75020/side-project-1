@@ -26,8 +26,15 @@ class DisplayUsers extends React.Component {
         this.setState({ users })
     }
 
-    editUser = () => {
-        const users = this.state.users
+    editUser = (event, updatedUser) => {
+        event.preventDefault();
+        const users = this.state.users.map(user => {
+            if(user.id === updatedUser.id) {
+                return updatedUser
+            } else {
+                return user
+            }
+        })
         this.setState ({ users })
         }
 

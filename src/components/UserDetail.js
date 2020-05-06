@@ -11,23 +11,29 @@ class UserDetail extends React.Component {
             name: this.props.name,
             email: this.props.email,
             address: this.props.address,
+            street: this.props.address.street,
+            city: this.props.address.city,
+            suite: this.props.address.suite,
+            zipcode: this.props.address.zipcode,
         }
     }
 
     handleChange = (e) => {
+        const currentAddress = this.state.address;
         let name = e.target.name;
         let value = e.target.value;
-        this.setState({ [name]: value })
+
+        if (name === 'zipcode' || name === 'street' || name === 'suite' || name === 'city') {
+            currentAddress[name] = value;
+            this.setState({ address: currentAddress })
+        } else {
+            this.setState({ [name]: value })
+        }
     }
 
-    handleSubmit = (e) => {
-        let name = e.target.name;
-        let value = e.target.value;
-        this.setState({ [name]: value })
-    }
 
     render() {
-        const {  editMode, id, username, name, email, address } = this.state;
+        const { editMode, id, username, name, email, address } = this.state;
         return (
             <div className="user-class">
                 <fieldset>
@@ -48,11 +54,14 @@ class UserDetail extends React.Component {
                         <p><strong>City/Zipcode </strong>{address.city} / {address.zipcode}</p>
                     </div>
                     {editMode &&
-                        <form className="adduser-data" onSubmit={() => this.handleSubmit}>
-                            <input name="id" value={id} onChange={this.handleChange} />
+                        <form className="adduser-data" onSubmit={(e) => this.props.editUser(e, this.state)}>
                             <input name="name" value={name} onChange={this.handleChange} />
                             <input name="username" value={username} onChange={this.handleChange} />
                             <input name="email" value={email} onChange={this.handleChange} />
+                            <input name="street" value={address.street} onChange={this.handleChange} />
+                            <input name="suite" value={address.suite} onChange={this.handleChange} />  
+                            <input name="city" value={address.city} onChange={this.handleChange} />
+                            <input name="zipcode" value={address.zipcode} onChange={this.handleChange} />                            
                             <button type="submit" className="save-button">Save Changes</button>
                         </form>
                     }
